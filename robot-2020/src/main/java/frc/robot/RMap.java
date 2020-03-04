@@ -15,5 +15,18 @@ package frc.robot;
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
  * constants are needed, to reduce verbosity.
  */
-public final class Constants {
+public class RMap 
+{
+
+// Drive Train
+static int CANLeftFrontMotor = 0;
+static int CANRightFrontMotor = 1;
+static int CANLeftBackMotor = 2;
+static int CANRightBackMotor = 3;
+static double driveTrainDeadzone = 0.04;
+static double driveTrainMax = 0.8;
+static double gyroStraightKp = 0.065;
+static double maxSpeedIncrease = 0.03;
+static double maxSpeedDecrease = 0.08;
+
 }
