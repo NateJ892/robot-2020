@@ -7,6 +7,7 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.XboxController;
 
 /*      Learn all you need to know about the mecanum drive class here!
         This explains cartesian drive, and how forward, strafe, 
@@ -16,29 +17,37 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 
 public class DriveTrain {
 
+    // Creation of CANSparkMax objects
     CANSparkMax leftFrontMotor, rightFrontMotor, leftBackMotor, rightBackMotor;
-
+    // MecanumDrive
     MecanumDrive ckDrive;
+    // gyro
     ADXRS450_Gyro ckGyro;
     Double speedF = 0.0; // forward speed
     Double speedR = 0.0; // rotation speed
     Double speedS = 0.0; // strafe speed
 
+    XboxController ckController; // xbox controller object
+
     public DriveTrain() 
     {
 
+      // Attaching motor types and objects to the objects
         leftFrontMotor = new CANSparkMax (RMap.CANLeftFrontMotor, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightFrontMotor = new CANSparkMax (RMap.CANRightFrontMotor, CANSparkMaxLowLevel.MotorType.kBrushless);
         leftBackMotor = new CANSparkMax (RMap.CANLeftBackMotor, CANSparkMaxLowLevel.MotorType.kBrushless);
         rightBackMotor = new CANSparkMax (RMap.CANRightBackMotor, CANSparkMaxLowLevel.MotorType.kBrushless);
-
+        
+        // setting idle modes to "brake"
         leftFrontMotor.setIdleMode(IdleMode.kBrake);
         leftBackMotor.setIdleMode(IdleMode.kBrake);
         rightFrontMotor.setIdleMode(IdleMode.kBrake);
         rightBackMotor.setIdleMode(IdleMode.kBrake);
 
+        // creating the MecanumDrive train
         ckDrive = new MecanumDrive (leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 
+        // Creating the gyro
         ckGyro = new ADXRS450_Gyro();
         
         SmartDashboard.putData("Drive Train", ckDrive);

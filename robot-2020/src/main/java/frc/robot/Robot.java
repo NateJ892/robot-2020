@@ -8,6 +8,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -15,11 +18,19 @@ import edu.wpi.first.wpilibj.TimedRobot;
  * the package after creating this project, you must also update the build.gradle file in the
  * project.
  */
+
+
+
 public class Robot extends TimedRobot {
  
+ XboxController ckController;
+ DriveTrain ckDrive = new DriveTrain ();
  
   @Override
-  public void robotInit() {}
+  public void robotInit() {
+
+      ckController = new XboxController(0);
+  }
 
   @Override
   public void robotPeriodic() {}
@@ -38,11 +49,17 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {}
 
   @Override
-  public void teleopInit() {}  
+  public void teleopInit() {
+
+
+
+  }  
   
 
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    ckDrive.teleDriveCartesian(-ckController.getY(GenericHID.Hand.kRight),ckController.getX(GenericHID.Hand.kRight), ckController.getX(GenericHID.Hand.kLeft));
+  }
 
   @Override
   public void testInit() {}
