@@ -8,12 +8,14 @@
 package frc.robot;
 
 /**
- * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
- * constants.  This class should not be used for any other purpose.  All constants should be
- * declared globally (i.e. public static).  Do not put anything functional in this class.
+ * The Constants class provides a convenient place for teams to hold robot-wide
+ * numerical or boolean constants. This class should not be used for any other
+ * purpose. All constants should be declared globally (i.e. public static). Do
+ * not put anything functional in this class.
  *
- * <p>It is advised to statically import this class (or one of its inner classes) wherever the
- * constants are needed, to reduce verbosity.
+ * <p>
+ * It is advised to statically import this class (or one of its inner classes)
+ * wherever the constants are needed, to reduce verbosity.
  */
 public class RMap 
 {
@@ -28,6 +30,9 @@ static int CANRightBackMotor = 10;
 static int CANFerrisWheelMotor = 4;
 static int CANShooterMotorLeft = 2;
 static int CANShooterMotorRight = 1;
+static int CANLiftMotorBack = 11;
+static int CANLiftMotorFront = 9;
+
 
 // Final Variables
 static final double driveTrainDeadzone = 0.04;
@@ -35,6 +40,9 @@ static final double driveTrainMax = 0.8;
 static final double gyroStraightKp = 0.065;
 static final double maxSpeedIncrease = 0.03;
 static final double maxSpeedDecrease = 0.08;
+static final double liftSpeed = 0.4;
+
+static boolean liftExtend = false;
 
 // DIO
 static int screwSens = 0;
