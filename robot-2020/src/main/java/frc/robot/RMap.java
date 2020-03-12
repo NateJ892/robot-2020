@@ -19,15 +19,15 @@ public class RMap
 {
 
 // Drive Train
-static int CANLeftFrontMotor = 0;
-static int CANRightFrontMotor = 1;
-static int CANLeftBackMotor = 2;
-static int CANRightBackMotor = 3;
+static int CANLeftFrontMotor = 12;
+static int CANRightFrontMotor = 13;
+static int CANLeftBackMotor = 14;
+static int CANRightBackMotor = 10;
 
 // Other Subsystem Motors
 static int CANFerrisWheelMotor = 4;
-static int CANShooterMotorA = 5;
-static int CANShooterMotorB = 6;
+static int CANShooterMotorLeft = 2;
+static int CANShooterMotorRight = 1;
 
 // Final Variables
 static final double driveTrainDeadzone = 0.04;

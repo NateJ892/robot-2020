@@ -10,8 +10,8 @@ public class Shooter
 
     public Shooter(){
 
-        m_WheelMotorA = new CANSparkMax (RMap.CANShooterMotorA, CANSparkMaxLowLevel.MotorType.kBrushless);
-        m_WheelMotorB = new CANSparkMax (RMap.CANShooterMotorB, CANSparkMaxLowLevel.MotorType.kBrushless);
+       // m_WheelMotorA = new CANSparkMax (RMap.CANShooterMotorA, CANSparkMaxLowLevel.MotorType.kBrushless);
+       // m_WheelMotorB = new CANSparkMax (RMap.CANShooterMotorB, CANSparkMaxLowLevel.MotorType.kBrushless);
         
 
     }
