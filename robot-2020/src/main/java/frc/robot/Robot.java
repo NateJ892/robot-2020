@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.GenericHID;
 
 /**
@@ -24,11 +25,14 @@ public class Robot extends TimedRobot {
  
  XboxController ckController;
  DriveTrain ckDrive = new DriveTrain ();
- 
+ Shooter ckShooter = new Shooter ();
+ Lift ckLift = new Lift();
+
   @Override
   public void robotInit() {
 
       ckController = new XboxController(0);
+      
   }
 
   @Override
@@ -58,8 +62,20 @@ public class Robot extends TimedRobot {
   
 
   @Override
-  public void teleopPeriodic() {
+  public void teleopPeriodic() 
+  {
     ckDrive.teleDriveCartesian(-ckController.getY(GenericHID.Hand.kRight),ckController.getX(GenericHID.Hand.kRight), ckController.getX(GenericHID.Hand.kLeft));
+
+    if (ckController.getTriggerAxis(Hand.kLeft)>0);
+    {
+      ckShooter.shoot();
+    }
+    if (ckController.getStartButtonReleased() == true) RMap.liftExtend = true;
+    
+    if (RMap.liftExtend = true)
+    {
+      ckLift.LiftUp();
+    }
   }
 
   @Override
