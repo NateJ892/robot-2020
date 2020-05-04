@@ -6,45 +6,21 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 public class FerrisWheel
 {
+    private DigitalInput screwSensor, ballSensor;
+    private CANSparkMax ferrisMotor;    //NOT SPARK MAX, THINK IT'S TALON
+    private static volatile boolean wheelTaskFinished = false;
 
-    DigitalInput screwSensor, ballSensor;
-    CANSparkMax ferrisMotor;
-
-    boolean screwThere = false;
-    boolean previousScrewThere = false;
-    boolean [] ballStatus = {false, false, false, false, false};
-    int position;
-    int prevPosition;
 
     public FerrisWheel ()
     {
-
         screwSensor = new DigitalInput(RMap.screwSens);
         ballSensor = new DigitalInput (RMap.ballSens);
-
         ferrisMotor = new CANSparkMax (RMap.CANFerrisWheelMotor, CANSparkMaxLowLevel.MotorType.kBrushless);
-
-    }
-
-    public void setBallPosition (int pos)
-    {
-        this.position = pos;
     }
     
-    public int getBallPosition()
+    public void cycleWheel()    //We have 8 CPU cores to work with so why not use asyncronous programming
     {
-        return position;
-    }
-
-    public void switchBallPosition()
-    {
-        switch (this.position) {
-        case 0: this.position = 1;
-        case 1: this.position = 2;
-        case 2: this.position = 3;
-        case 3: this.position = 4;
-        case 4: this.position = 0;
-        }
+        
     }
 
     public void ballStatus ()

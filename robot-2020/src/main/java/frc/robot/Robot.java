@@ -12,16 +12,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.GenericHID;
 
-/**
- * The VM is configured to automatically run this class, and to call the functions corresponding to
- * each mode, as described in the TimedRobot documentation. If you change the name of this class or
- * the package after creating this project, you must also update the build.gradle file in the
- * project.
- */
-
-
-
-public class Robot extends TimedRobot {
+public class Robot extends TimedRobot 
+{
  
  XboxController ckController;
  DriveTrain ckDrive = new DriveTrain ();
@@ -29,58 +21,17 @@ public class Robot extends TimedRobot {
  Lift ckLift = new Lift();
 
   @Override
-  public void robotInit() {
-
-      ckController = new XboxController(0);
-      
+  public void robotInit() 
+  {
+      ckController = new XboxController(0);   
   }
-
-  @Override
-  public void robotPeriodic() {
-    
-  }
-
-  @Override
-  public void disabledInit() {}
-
-  @Override
-  public void disabledPeriodic() {}
-
- 
-  @Override
-  public void autonomousInit() {}
-
-  @Override
-  public void autonomousPeriodic() {}
-
-  @Override
-  public void teleopInit() {
-
-
-
-  }  
-  
 
   @Override
   public void teleopPeriodic() 
   {
     ckDrive.teleDriveCartesian(-ckController.getY(GenericHID.Hand.kRight),ckController.getX(GenericHID.Hand.kRight), ckController.getX(GenericHID.Hand.kLeft));
 
-    if (ckController.getTriggerAxis(Hand.kLeft)>0);
-    {
-      ckShooter.shoot();
-    }
-    if (ckController.getStartButtonReleased() == true) RMap.liftExtend = true;
-    
-    if (RMap.liftExtend = true)
-    {
-      ckLift.LiftUp();
-    }
+    if (ckController.getTriggerAxis(Hand.kLeft)>0.5) ckShooter.shoot();
+    if (ckController.getStartButtonReleased() == true) ckLift.LiftUp();
   }
-
-  @Override
-  public void testInit() {}
-
-  @Override
-  public void testPeriodic() {}
 }
