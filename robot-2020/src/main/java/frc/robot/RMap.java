@@ -36,5 +36,4 @@ static boolean liftExtend = false;
 // DIO (Digital Input Output)
 static int screwSens = 0;
 static int ballSens = 1;
-
 }
